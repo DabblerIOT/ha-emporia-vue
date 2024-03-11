@@ -141,9 +141,9 @@ class CurrentVuePowerSensor(CoordinatorEntity, SensorEntity):
     def scale_usage(self, usage):
         """Scales the usage to the correct timescale and magnitude."""
         if self._scale == Scale.MINUTE.value:
-            usage = round(60 * 1000 * usage)  # convert from kwh to w rate
+            usage = round(60 * 1000 * usage,2)  # convert from kwh to w rate
         elif self._scale == Scale.SECOND.value:
-            usage = round(3600 * 1000 * usage)  # convert to rate
+            usage = round(3600 * 1000 * usage,2)  # convert to rate
         elif self._scale == Scale.MINUTES_15.value:
             usage = round(
                 4 * 1000 * usage
